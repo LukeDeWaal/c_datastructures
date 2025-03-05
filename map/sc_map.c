@@ -410,5 +410,7 @@ sc_map_def_strkey(str, const char *, const char *, sc_map_streq, murmurhash)
 sc_map_def_strkey(sv,  const char *, void *,       sc_map_streq, murmurhash)
 sc_map_def_strkey(s64, const char *, uint64_t,     sc_map_streq, murmurhash)
 sc_map_def_strkey(sll, const char *, long long,    sc_map_streq, murmurhash)
+sc_map_def_strkey(str_u32, const char *, uint32_t,     sc_map_streq, murmurhash)
+sc_map_def_strkey(str_u64, const char *, uint64_t,     sc_map_streq, murmurhash)
 
 // clang-format on
