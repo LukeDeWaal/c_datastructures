@@ -125,7 +125,7 @@ void example(void)
 void test0(void)
 {
 	uint32_t val;
-	struct sc_queue_32 q;
+	struct sc_queue_u32 q;
 
 	sc_queue_init(&q);
 
