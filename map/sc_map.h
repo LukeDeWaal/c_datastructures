@@ -173,11 +173,11 @@
  *      printf("key = %s, value = %s \n");
  * }
  */
-#define sc_map_foreach(map, K, V)                                                  \
-	for (int64_t _i = -1, _b = 0; !_b && _i < (map)->cap; _i++)                \
-		for ((V) = (map)->mem[_i].value, (K) = (map)->mem[_i].key, _b = 1; \
-		     _b && ((_i == -1 && (map)->used) || (K) != 0) ? 1 : (_b = 0); \
-		     _b = 0)
+#define sc_map_foreach(map, K, V, it)                                              \
+	for (int64_t it = -1, it##_b = 0; !it##_b && it < (map)->cap; it++)                \
+		for ((V) = (map)->mem[it].value, (K) = (map)->mem[it].key, it##_b = 1; \
+		     it##_b && ((it == -1 && (map)->used) || (K) != 0) ? 1 : (it##_b = 0); \
+		     it##_b = 0)
 
 /**
  * Foreach loop for keys
@@ -189,11 +189,11 @@
  *      printf("key = %s \n");
  * }
  */
-#define sc_map_foreach_key(map, K)                                                 \
-	for (int64_t _i = -1, _b = 0; !_b && _i < (map)->cap; _i++)                \
-		for ((K) = (map)->mem[_i].key, _b = 1;                             \
-		     _b && ((_i == -1 && (map)->used) || (K) != 0) ? 1 : (_b = 0); \
-		     _b = 0)
+#define sc_map_foreach_key(map, K, it)                                                 \
+	for (int64_t it = -1, it##_b = 0; !it##_b && it < (map)->cap; it++)                \
+		for ((K) = (map)->mem[it].key, it##_b = 1;                             \
+		     it##_b && ((it == -1 && (map)->used) || (K) != 0) ? 1 : (it##_b = 0); \
+		     it##_b = 0)
 
 /**
  * Foreach loop for values
@@ -205,11 +205,11 @@
  *      printf("value = %s \n");
  * }
  */
-#define sc_map_foreach_value(map, V)                                                              \
-	for (int64_t _i = -1, _b = 0; !_b && _i < (map)->cap; _i++)                               \
-		for ((V) = (map)->mem[_i].value, _b = 1;                                          \
-		     _b && ((_i == -1 && (map)->used) || (map)->mem[_i].key != 0) ? 1 : (_b = 0); \
-		     _b = 0)
+#define sc_map_foreach_value(map, V, it)                                                              \
+	for (int64_t it = -1, it##_b = 0; !it##_b && it < (map)->cap; it++)                               \
+		for ((V) = (map)->mem[it].value, it##_b = 1;                                          \
+		     it##_b && ((it == -1 && (map)->used) || (map)->mem[it].key != 0) ? 1 : (it##_b = 0); \
+		     it##_b = 0)
 
 // integer keys: name  key type      value type
 sc_map_dec_scalar(int, int,          int)
