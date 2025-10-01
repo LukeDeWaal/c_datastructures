@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
 add_library(
-        sc_list SHARED
+        sc_list STATIC
         sc_list.c
         sc_list.h)
 
